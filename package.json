@@ -14,5 +14,16 @@
   "dependencies": {
     "commander": "^13.1.0",
     "shelljs": "^0.8.5"
-  }
+  },
+  "author": {
+    "email": "thummar.aditya@gmail.com",
+    "name": "Aditya Thummar",
+    "url": "https://github.com/AdityaThummar"
+  },
+  "repository": {
+    "directory": "https://github.com/AdityaThummar/rnscripts.git",
+    "type": "git",
+    "url": "https://github.com/AdityaThummar/rnscripts.git"
+  },
+  "homepage": "https://github.com/AdityaThummar/rnscripts.git"
 }
