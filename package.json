@@ -1,5 +1,5 @@
 {
-  "name": "rnscripts",
+  "name": "rnscpt",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
@@ -9,7 +9,8 @@
   "keywords": [
     "react-native",
     "rnscripts",
-    "ci"
+    "ci",
+    "rnscpt"
   ],
   "dependencies": {
     "commander": "^13.1.0",
