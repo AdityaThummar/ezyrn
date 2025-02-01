@@ -1,16 +1,16 @@
 {
-  "name": "rnscpt",
+  "name": "ezyrn",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "rn-config-tools": "./bin/cli.js"
+    "ezyrn": "./bin/cli.js"
   },
   "keywords": [
     "react-native",
     "rnscripts",
     "ci",
-    "rnscpt"
+    "ezyrn"
   ],
   "dependencies": {
     "commander": "^13.1.0",
