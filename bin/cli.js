@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+const { program } = require('commander');
+const shell = require('shelljs');
+
+program
+  .command('ci')
+  .description(
+    'Clean React Native dependencies and reinstall using npm and iOS pods',
+  )
+  .action(() => {
+    console.log('🧹 Cleaning project dependencies...');
+
+    // Remove directories/files
+    shell.rm('-rf', 'node_modules');
+    shell.rm('-rf', 'package-lock.json');
+    shell.rm('-rf', 'ios/Pods');
+    shell.rm('-rf', 'ios/Podfile.lock');
+
+    console.log('📦 Reinstalling npm dependencies using npm...');
+    shell.exec('npm i');
+
+    console.log('🍏 Reinstalling iOS pods...');
+    shell.cd('ios');
+    shell.exec('pod install');
+
+    console.log('✅ Clean install completed ! 🎉');
+  });
+
+program
+  .command('ci-yarn')
+  .description(
+    'Clean React Native dependencies and reinstall using yarn and iOS pods',
+  )
+  .action(() => {
+    console.log('🧹 Cleaning project dependencies...');
+
+    // Remove directories/files
+    shell.rm('-rf', 'node_modules');
+    shell.rm('-rf', 'yarn.json');
+    shell.rm('-rf', 'ios/Pods');
+    shell.rm('-rf', 'ios/Podfile.lock');
+
+    console.log('📦 Reinstalling npm dependencies using yarn...');
+    shell.exec('yarn');
+
+    console.log('🍏 Reinstalling iOS pods...');
+    shell.cd('ios');
+    shell.exec('pod install');
+
+    console.log('✅ Clean install completed ! 🎉');
+  });
+
+program.parse(process.argv);
