@@ -74,4 +74,31 @@ program
     console.log('✅ Clean install completed ! 🎉');
   });
 
+program
+  .command('start-exp-reset')
+  .description(
+    'Starting server with experimental debugger with resetting the packager ...',
+  )
+  .action(() => {
+    shell.exec('yarn start --reset-cache --experimental-debugger');
+  });
+
+program
+  .command('start-exp')
+  .description(
+    'Starting server with experimental debugger ...',
+  )
+  .action(() => {
+    shell.exec('yarn start --experimental-debugger');
+  });
+
+program
+  .command('start-reset')
+  .description(
+    'Starting server with resetting the packager ...',
+  )
+  .action(() => {
+    shell.exec('yarn start --reset-cache');
+  });
+
 program.parse(process.argv);
