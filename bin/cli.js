@@ -3,6 +3,50 @@ const { program } = require('commander');
 const shell = require('shelljs');
 
 program
+  .command('i')
+  .description(
+    'Clean React Native dependencies and reinstall using npm and iOS pods',
+  )
+  .action(() => {
+    console.log('🧹 Cleaning project dependencies...');
+
+    // Remove directories/files
+    shell.rm('-rf', 'node_modules');
+    shell.rm('-rf', 'ios/Pods');
+    shell.rm('-rf', 'ios/Podfile.lock');
+
+    console.log('📦 Reinstalling npm dependencies using npm...');
+    shell.exec('npm i');
+
+    console.log('🍏 Reinstalling iOS pods...');
+    shell.exec('npx pod-install');
+
+    console.log('✅ Script done Boss !!');
+  });
+
+program
+  .command('i-yarn')
+  .description(
+    'Clean React Native dependencies and reinstall using npm and iOS pods',
+  )
+  .action(() => {
+    console.log('🧹 Cleaning project dependencies...');
+
+    // Remove directories/files
+    shell.rm('-rf', 'node_modules');
+    shell.rm('-rf', 'ios/Pods');
+    shell.rm('-rf', 'ios/Podfile.lock');
+
+    console.log('📦 Reinstalling npm dependencies using yarn...');
+    shell.exec('yarn');
+
+    console.log('🍏 Reinstalling iOS pods...');
+    shell.exec('npx pod-install');
+
+    console.log('✅ Script done Boss !!');
+  });
+
+program
   .command('ci')
   .description(
     'Clean React Native dependencies and reinstall using npm and iOS pods',
@@ -20,10 +64,9 @@ program
     shell.exec('npm i');
 
     console.log('🍏 Reinstalling iOS pods...');
-    shell.cd('ios');
-    shell.exec('pod install');
+    shell.exec('npx pod-install');
 
-    console.log('✅ Clean install completed ! 🎉');
+    console.log('✅ Script done Boss !!');
   });
 
 program
@@ -44,10 +87,9 @@ program
     shell.exec('npm i -f');
 
     console.log('🍏 Reinstalling iOS pods...');
-    shell.cd('ios');
-    shell.exec('pod install');
+    shell.exec('npx pod-install');
 
-    console.log('✅ Clean install completed ! 🎉');
+    console.log('✅ Script done Boss !!');
   });
 
 program
@@ -68,10 +110,27 @@ program
     shell.exec('yarn');
 
     console.log('🍏 Reinstalling iOS pods...');
-    shell.cd('ios');
-    shell.exec('pod install');
+    shell.exec('npx pod-install');
 
-    console.log('✅ Clean install completed ! 🎉');
+    console.log('✅ Script done Boss !!');
+  });
+
+program
+  .command('i-pods')
+  .description(
+    'Clean React Native dependencies and reinstall using npm and iOS pods',
+  )
+  .action(() => {
+    console.log('🧹 Cleaning Pods...');
+
+    // Remove directories/files
+    shell.rm('-rf', 'ios/Pods');
+    shell.rm('-rf', 'ios/Podfile.lock');
+
+    console.log('🍏 Reinstalling iOS pods...');
+    shell.exec('npx pod-install');
+
+    console.log('✅ Script done Boss !!');
   });
 
 program
@@ -85,18 +144,14 @@ program
 
 program
   .command('start-exp')
-  .description(
-    'Starting server with experimental debugger ...',
-  )
+  .description('Starting server with experimental debugger ...')
   .action(() => {
     shell.exec('yarn start --experimental-debugger');
   });
 
 program
   .command('start-reset')
-  .description(
-    'Starting server with resetting the packager ...',
-  )
+  .description('Starting server with resetting the packager ...')
   .action(() => {
     shell.exec('yarn start --reset-cache');
   });
