@@ -1,7 +1,9 @@
-# ezyrn
+# EzyRN
+
 ## Scripts that make your process fast using the custom scripts that every developer is using daily.
 
 ## How to install
+
 
 ### Install package globally
 ```
