@@ -42,21 +42,21 @@ Run this command at root of your project
 ```
 npx ezyrn ci
 ```
-- It will run command ```rm -rf node_modules && rm -rf package-lock.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i && cd ios && pod install```
+- It will run command ```rm -rf node_modules && rm -rf package-lock.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i && npx pod-install```
 
 ## ci-f
 Run this command at root of your project
 ```
 npx ezyrn ci-f
 ```
-- It will run command ```rm -rf node_modules && rm -rf package-lock.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i -f && cd ios && pod install```
+- It will run command ```rm -rf node_modules && rm -rf package-lock.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i -f && npx pod-install```
 
 ## ci-yarn
 Run this command at root of your project
 ```
 npx ezyrn ci-yarn
 ```
-- It will run command ```rm -rf node_modules && rm -rf yarn.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && yarn && cd ios && pod install```
+- It will run command ```rm -rf node_modules && rm -rf yarn.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && yarn && npx pod-install```
 
 ## i-pods
 Run this command at root of your project
