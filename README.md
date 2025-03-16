@@ -72,21 +72,21 @@ Run this command at root of your project
 ```
 npx ezyrn start-exp-reset
 ```
-- It will run command ```yarn start --reset-cache --experimental-debugger```
+- It will run command ```npx react-native start --reset-cache --experimental-debugger```
 
 ## start-exp
 Run this command at root of your project
 ```
 npx ezyrn start-exp
 ```
-- It will run command ```yarn start --experimental-debugger```
+- It will run command ```npx react-native start --experimental-debugger```
 
 ## start-reset
 Run this command at root of your project
 ```
 npx ezyrn start-reset
 ```
-- It will run command ```yarn start --reset-cache```
+- It will run command ```npx react-native start --reset-cache```
 
 ### Always open to Feedbacks, So keep giving the Feedback on thummar.aditya@gmail.com so we can improve this.
 

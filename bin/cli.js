@@ -139,21 +139,21 @@ program
     'Starting server with experimental debugger with resetting the packager ...',
   )
   .action(() => {
-    shell.exec('yarn start --reset-cache --experimental-debugger');
+    shell.exec('npx react-native start --reset-cache --experimental-debugger');
   });
 
 program
   .command('start-exp')
   .description('Starting server with experimental debugger ...')
   .action(() => {
-    shell.exec('yarn start --experimental-debugger');
+    shell.exec('npx react-native start --experimental-debugger');
   });
 
 program
   .command('start-reset')
   .description('Starting server with resetting the packager ...')
   .action(() => {
-    shell.exec('yarn start --reset-cache');
+    shell.exec('npx react-native start --reset-cache');
   });
 
 program.parse(process.argv);
