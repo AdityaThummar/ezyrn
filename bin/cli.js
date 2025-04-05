@@ -3,7 +3,7 @@ const { program } = require('commander');
 const shell = require('shelljs');
 
 const startScript = () => {
-  console.log('\n------- EzyRN ⚡️⚡️-------\n\n');
+  console.log('\n-------⚡️⚡️ Ezy RN ⚡️⚡️-------\n');
 };
 
 const endScript = () => {
