@@ -2,26 +2,67 @@
 const { program } = require('commander');
 const shell = require('shelljs');
 
+const startScript = () => {
+  console.log('\n------- EzyRN ⚡️⚡️-------\n\n');
+};
+
+const endScript = () => {
+  console.log('\n✅ Script done Boss !!\n\n');
+};
+
+const cleaningWarning = () => {
+  console.log('\n🧹 Cleaning ..');
+};
+
+const executeScript = (script) => {
+  console.log('＞ ' + script);
+  shell.exec(script);
+}
+
+const installPackages = (npm = true, force = false) => {
+  console.log(`\n📦 Installing (Using ${npm ? 'npm' : 'yarn'}) ..`);
+  let script = '';
+  if(npm) {
+    script = 'npm i';
+  } else {
+    script = 'yarn';
+  }
+  if(force) {
+    script += ' -f';
+  }
+  executeScript(script);
+};
+
+const installPod = (npm = true) => {
+  console.log(`\n🍏 Installing Pods ..`);
+  const script = 'npx pod-install';
+  executeScript(script);
+};
+
+const removalScript = (string = 'Please wait...') => {
+  console.log('＞ rm -rf ' + string);
+  shell.rm('-rf', string);
+};
+
 program
   .command('i')
   .description(
     'rm -rf node_modules && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i && npx pod-install',
   )
   .action(() => {
-    console.log('🧹 Cleaning project dependencies...');
+    startScript();
 
+    cleaningWarning();
     // Remove directories/files
-    shell.rm('-rf', 'node_modules');
-    shell.rm('-rf', 'ios/Pods');
-    shell.rm('-rf', 'ios/Podfile.lock');
+    removalScript('node_modules');
+    removalScript('ios/Pods');
+    removalScript('ios/Podfile.lock');
 
-    console.log('📦 Reinstalling npm dependencies using npm...');
-    shell.exec('npm i');
+    installPackages();
 
-    console.log('🍏 Reinstalling iOS pods...');
-    shell.exec('npx pod-install');
+    installPod();
 
-    console.log('✅ Script done Boss !!');
+    endScript();
   });
 
 program
@@ -30,20 +71,19 @@ program
     'rm -rf node_modules && rm -rf ios/Pods && rm -rf ios/Podfile.lock && yarn && npx pod-install',
   )
   .action(() => {
-    console.log('🧹 Cleaning project dependencies...');
+    startScript();
 
+    cleaningWarning();
     // Remove directories/files
-    shell.rm('-rf', 'node_modules');
-    shell.rm('-rf', 'ios/Pods');
-    shell.rm('-rf', 'ios/Podfile.lock');
+    removalScript('node_modules');
+    removalScript('ios/Pods');
+    removalScript('ios/Podfile.lock');
 
-    console.log('📦 Reinstalling npm dependencies using yarn...');
-    shell.exec('yarn');
+    installPackages(false);
 
-    console.log('🍏 Reinstalling iOS pods...');
-    shell.exec('npx pod-install');
+    installPod();
 
-    console.log('✅ Script done Boss !!');
+    endScript();
   });
 
 program
@@ -52,21 +92,20 @@ program
     'rm -rf node_modules && rm -rf package-lock.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i && npx pod-install',
   )
   .action(() => {
-    console.log('🧹 Cleaning project dependencies...');
+    startScript();
 
+    cleaningWarning();
     // Remove directories/files
-    shell.rm('-rf', 'node_modules');
-    shell.rm('-rf', 'package-lock.json');
-    shell.rm('-rf', 'ios/Pods');
-    shell.rm('-rf', 'ios/Podfile.lock');
+    removalScript('node_modules');
+    removalScript('package-lock.json');
+    removalScript('ios/Pods');
+    removalScript('ios/Podfile.lock');
 
-    console.log('📦 Reinstalling npm dependencies using npm...');
-    shell.exec('npm i');
+    installPackages();
 
-    console.log('🍏 Reinstalling iOS pods...');
-    shell.exec('npx pod-install');
+    installPod();
 
-    console.log('✅ Script done Boss !!');
+    endScript();
   });
 
 program
@@ -75,21 +114,20 @@ program
     'rm -rf node_modules && rm -rf package-lock.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i -f && npx pod-install',
   )
   .action(() => {
-    console.log('🧹 Cleaning project dependencies...');
+    startScript();
 
+    cleaningWarning();
     // Remove directories/files
-    shell.rm('-rf', 'node_modules');
-    shell.rm('-rf', 'package-lock.json');
-    shell.rm('-rf', 'ios/Pods');
-    shell.rm('-rf', 'ios/Podfile.lock');
+    removalScript('node_modules');
+    removalScript('package-lock.json');
+    removalScript('ios/Pods');
+    removalScript('ios/Podfile.lock');
 
-    console.log('📦 Reinstalling npm dependencies using npm with force...');
-    shell.exec('npm i -f');
+    installPackages(true, true);
 
-    console.log('🍏 Reinstalling iOS pods...');
-    shell.exec('npx pod-install');
+    installPod();
 
-    console.log('✅ Script done Boss !!');
+    endScript();
   });
 
 program
@@ -98,62 +136,73 @@ program
     'rm -rf node_modules && rm -rf yarn.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && yarn && npx pod-install',
   )
   .action(() => {
-    console.log('🧹 Cleaning project dependencies...');
+    startScript();
 
+    cleaningWarning();
     // Remove directories/files
-    shell.rm('-rf', 'node_modules');
-    shell.rm('-rf', 'yarn.json');
-    shell.rm('-rf', 'ios/Pods');
-    shell.rm('-rf', 'ios/Podfile.lock');
+    removalScript('node_modules');
+    removalScript('package-lock.json');
+    removalScript('ios/Pods');
+    removalScript('ios/Podfile.lock');
 
-    console.log('📦 Reinstalling npm dependencies using yarn...');
-    shell.exec('yarn');
+    installPackages(false);
 
-    console.log('🍏 Reinstalling iOS pods...');
-    shell.exec('npx pod-install');
+    installPod();
 
-    console.log('✅ Script done Boss !!');
+    endScript();
   });
 
 program
   .command('i-pods')
-  .description(
-    'rm -rf ios/Pods && rm -rf ios/Podfile.lock && npx pod-install',
-  )
+  .description('rm -rf ios/Pods && rm -rf ios/Podfile.lock && npx pod-install')
   .action(() => {
-    console.log('🧹 Cleaning Pods...');
+    startScript();
 
-    // Remove directories/files
-    shell.rm('-rf', 'ios/Pods');
-    shell.rm('-rf', 'ios/Podfile.lock');
+    cleaningWarning();
+    removalScript('ios/Pods');
+    removalScript('ios/Podfile.lock');
+    installPod();
 
-    console.log('🍏 Reinstalling iOS pods...');
-    shell.exec('npx pod-install');
-
-    console.log('✅ Script done Boss !!');
+    endScript();
   });
 
 program
   .command('start-exp-reset')
-  .description(
-    'npx react-native start --reset-cache --experimental-debugger',
-  )
+  .description('npx react-native start --reset-cache --experimental-debugger')
   .action(() => {
-    shell.exec('npx react-native start --reset-cache --experimental-debugger');
+    startScript();
+
+    executeScript(
+      'npx react-native start --reset-cache --experimental-debugger',
+    );
+
+    endScript();
   });
 
 program
   .command('start-exp')
   .description('npx react-native start --experimental-debugger')
   .action(() => {
-    shell.exec('npx react-native start --experimental-debugger');
+    startScript();
+
+    executeScript(
+      'npx react-native start --experimental-debugger',
+    );
+
+    endScript();
   });
 
 program
   .command('start-reset')
   .description('npx react-native start --reset-cache')
   .action(() => {
-    shell.exec('npx react-native start --reset-cache');
+    startScript();
+
+    executeScript(
+      'npx react-native start --reset-cache',
+    );
+
+    endScript();
   });
 
 program.parse(process.argv);
