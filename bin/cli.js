@@ -5,7 +5,7 @@ const shell = require('shelljs');
 program
   .command('i')
   .description(
-    'Clean React Native dependencies and reinstall using npm and iOS pods',
+    'rm -rf node_modules && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i && npx pod-install',
   )
   .action(() => {
     console.log('🧹 Cleaning project dependencies...');
@@ -27,7 +27,7 @@ program
 program
   .command('i-yarn')
   .description(
-    'Clean React Native dependencies and reinstall using npm and iOS pods',
+    'rm -rf node_modules && rm -rf ios/Pods && rm -rf ios/Podfile.lock && yarn && npx pod-install',
   )
   .action(() => {
     console.log('🧹 Cleaning project dependencies...');
@@ -49,7 +49,7 @@ program
 program
   .command('ci')
   .description(
-    'Clean React Native dependencies and reinstall using npm and iOS pods',
+    'rm -rf node_modules && rm -rf package-lock.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i && npx pod-install',
   )
   .action(() => {
     console.log('🧹 Cleaning project dependencies...');
@@ -72,7 +72,7 @@ program
 program
   .command('ci-f')
   .description(
-    'Clean React Native dependencies and reinstall using npm and iOS pods',
+    'rm -rf node_modules && rm -rf package-lock.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && npm i -f && npx pod-install',
   )
   .action(() => {
     console.log('🧹 Cleaning project dependencies...');
@@ -95,7 +95,7 @@ program
 program
   .command('ci-yarn')
   .description(
-    'Clean React Native dependencies and reinstall using yarn and iOS pods',
+    'rm -rf node_modules && rm -rf yarn.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && yarn && npx pod-install',
   )
   .action(() => {
     console.log('🧹 Cleaning project dependencies...');
@@ -118,7 +118,7 @@ program
 program
   .command('i-pods')
   .description(
-    'Clean React Native dependencies and reinstall using npm and iOS pods',
+    'rm -rf ios/Pods && rm -rf ios/Podfile.lock && npx pod-install',
   )
   .action(() => {
     console.log('🧹 Cleaning Pods...');
@@ -136,7 +136,7 @@ program
 program
   .command('start-exp-reset')
   .description(
-    'Starting server with experimental debugger with resetting the packager ...',
+    'npx react-native start --reset-cache --experimental-debugger',
   )
   .action(() => {
     shell.exec('npx react-native start --reset-cache --experimental-debugger');
@@ -144,14 +144,14 @@ program
 
 program
   .command('start-exp')
-  .description('Starting server with experimental debugger ...')
+  .description('npx react-native start --experimental-debugger')
   .action(() => {
     shell.exec('npx react-native start --experimental-debugger');
   });
 
 program
   .command('start-reset')
-  .description('Starting server with resetting the packager ...')
+  .description('npx react-native start --reset-cache')
   .action(() => {
     shell.exec('npx react-native start --reset-cache');
   });
