@@ -205,4 +205,17 @@ program
     endScript();
   });
 
+  program
+  .command('adb-rv')
+  .description('adb reverse tcp:8081 tcp:8081')
+  .action(() => {
+    startScript();
+
+    executeScript(
+      'adb reverse tcp:8081 tcp:8081',
+    );
+
+    endScript();
+  });
+
 program.parse(process.argv);
