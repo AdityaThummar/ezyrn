@@ -167,6 +167,36 @@ program
   });
 
 program
+  .command('i-node')
+  .description('rm -rf node_modules && npm i')
+  .action(() => {
+    startScript();
+
+    cleaningWarning();
+    // Remove node_modules
+    removalScript('node_modules');
+
+    installPackages();
+
+    endScript();
+  });
+
+program
+  .command('i-node-yarn')
+  .description('rm -rf node_modules && yarn')
+  .action(() => {
+    startScript();
+
+    cleaningWarning();
+    // Remove node_modules
+    removalScript('node_modules');
+
+    installPackages(false);
+
+    endScript();
+  });
+
+program
   .command('start-exp-reset')
   .description('npx react-native start --reset-cache --experimental-debugger')
   .action(() => {
