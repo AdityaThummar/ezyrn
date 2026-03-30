@@ -133,7 +133,7 @@ program
 program
   .command('ci-yarn')
   .description(
-    'rm -rf node_modules && rm -rf yarn.json && rm -rf ios/Pods && rm -rf ios/Podfile.lock && yarn && npx pod-install',
+    'rm -rf node_modules && rm -rf yarn.lock && rm -rf ios/Pods && rm -rf ios/Podfile.lock && yarn && npx pod-install',
   )
   .action(() => {
     startScript();
@@ -141,7 +141,7 @@ program
     cleaningWarning();
     // Remove directories/files
     removalScript('node_modules');
-    removalScript('package-lock.json');
+    removalScript('yarn.lock');
     removalScript('ios/Pods');
     removalScript('ios/Podfile.lock');
 

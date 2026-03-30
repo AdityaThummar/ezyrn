@@ -1,16 +1,16 @@
 {
   "name": "zrn",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "ezyrn": "./bin/cli.js"
+    "zrn": "./bin/cli.js"
   },
   "keywords": [
     "react-native",
     "rnscripts",
     "ci",
-    "ezyrn"
+    "zrn"
   ],
   "dependencies": {
     "commander": "^13.1.0",
@@ -22,11 +22,11 @@
     "url": "https://github.com/AdityaThummar"
   },
   "repository": {
-    "directory": "https://github.com/AdityaThummar/ezyrn.git",
+    "directory": "https://github.com/AdityaThummar/rnscripts.git",
     "type": "git",
-    "url": "https://github.com/AdityaThummar/ezyrn.git"
+    "url": "https://github.com/AdityaThummar/rnscripts.git"
   },
-  "homepage": "https://github.com/AdityaThummar/ezyrn.git",
+  "homepage": "https://github.com/AdityaThummar/rnscripts.git",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   }
