@@ -248,4 +248,72 @@ program
     endScript();
   });
 
+program
+  .command('ci-ex')
+  .description('rm -rf android && rm -rf ios && rm -rf node_modules && npm i')
+  .action(() => {
+    startScript();
+
+    cleaningWarning();
+    removalScript('android');
+    removalScript('ios');
+    removalScript('node_modules');
+
+    installPackages(true);
+
+    endScript();
+  });
+
+program
+  .command('ci-ex-yarn')
+  .description('rm -rf android && rm -rf ios && rm -rf node_modules && yarn')
+  .action(() => {
+    startScript();
+
+    cleaningWarning();
+    removalScript('android');
+    removalScript('ios');
+    removalScript('node_modules');
+
+    installPackages(false);
+
+    endScript();
+  });
+
+program
+  .command('ci-ex-build')
+  .description('rm -rf android && rm -rf ios && rm -rf node_modules && npm i && npx expo prebuild')
+  .action(() => {
+    startScript();
+
+    cleaningWarning();
+    removalScript('android');
+    removalScript('ios');
+    removalScript('node_modules');
+
+    installPackages(true);
+
+    executeScript('npx expo prebuild');
+
+    endScript();
+  });
+
+program
+  .command('ci-ex-yarn-build')
+  .description('rm -rf android && rm -rf ios && rm -rf node_modules && yarn && npx expo prebuild')
+  .action(() => {
+    startScript();
+
+    cleaningWarning();
+    removalScript('android');
+    removalScript('ios');
+    removalScript('node_modules');
+
+    installPackages(false);
+
+    executeScript('npx expo prebuild');
+
+    endScript();
+  });
+
 program.parse(process.argv);
